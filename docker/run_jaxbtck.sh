@@ -21,6 +21,7 @@ if ls ${WORKSPACE}/bundles/*xml-binding-tck*.zip 1> /dev/null 2>&1; then
   unzip -o ${WORKSPACE}/bundles/*xml-binding-tck*.zip -d ${WORKSPACE}/jaxb-tck-build/unzip
   TCK_NAME=xml-binding-tck
   mv ${WORKSPACE}/jaxb-tck-build/unzip/xml-binding-tck ${WORKSPACE}/jaxb-tck-build/unzip/XMLB-TCK-3.0
+  chmod -R 777 ${WORKSPACE}/jaxb-tck-build/unzip/XMLB-TCK-3.0
 fi
 
 
