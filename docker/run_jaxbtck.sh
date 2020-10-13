@@ -18,10 +18,12 @@
 if ls ${WORKSPACE}/bundles/*xml-binding-tck*.zip 1> /dev/null 2>&1; then
   echo "Using stashed bundle for xml-binding-tck created during the build phase"
   mkdir -p ${WORKSPACE}/jaxb-tck-build/unzip
-  unzip -o ${WORKSPACE}/bundles/*xml-binding-tck*.zip -d ${WORKSPACE}/jaxb-tck-build/unzip
+  unzip -q -o ${WORKSPACE}/bundles/*xml-binding-tck*.zip -d ${WORKSPACE}/jaxb-tck-build/unzip
   TCK_NAME=xml-binding-tck
   mv ${WORKSPACE}/jaxb-tck-build/unzip/xml-binding-tck ${WORKSPACE}/jaxb-tck-build/unzip/XMLB-TCK-3.0
   chmod -R 777 ${WORKSPACE}/jaxb-tck-build/unzip/XMLB-TCK-3.0
+  ls -ltr ${WORKSPACE}/jaxb-tck-build/XMLB-TCK-3.0/
+  ls -ltr ${WORKSPACE}/jaxb-tck-build/XMLB-TCK-3.0/tests/testsuite.jtd
 fi
 
 
@@ -66,7 +68,7 @@ wget $WGET_PROPS $GF_BUNDLE_URL -O latest-glassfish.zip
 
 wget https://repo1.maven.org/maven2/org/checkerframework/checker/3.5.0/checker-3.5.0.jar -O ${WORKSPACE}/checker.jar
 
-unzip -o latest-glassfish.zip
+unzip -q -o latest-glassfish.zip
 chmod -R 777 ${TOP_GLASSFISH_DIR}
 
 mkdir -p JAXB_REPORT/JAXB-TCK
